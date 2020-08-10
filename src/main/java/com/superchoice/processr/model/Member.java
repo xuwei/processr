@@ -19,73 +19,73 @@ public class Member {
 	
 	@CsvBindByName
 	private String transactionIdentifier;
-	
+    
 	@CsvBindByName
-	private String employeeName;
-	
+	private String employerName;
+    
 	@CsvBindByName
-	private String employeeABN;
-	
+	private String employerABN;
+    
 	@CsvBindByName
 	private String fundIdentifier;
-	
+    
 	@CsvBindByName
-	private String fundEmployeeIdentifier;
-	
+	private String fundEmployerIdentifier;
+    
 	@CsvBindByName
-	private String memberFirstname;
-	
+	private String memberFirstName;
+    
 	@CsvBindByName
-	private String memberLastname;
-	
+	private String memberLastName;
+    
 	@CsvBindByName
-	private String memberDOB;
-	
+	private String memberDateOfBirth;
+    
 	@CsvBindByName
 	private String memberGender;
-	
+    
 	@CsvBindByName
 	private String memberAddress;
-	
+    
 	@CsvBindByName
 	private String memberEmail;
-	
+    
 	@CsvBindByName
 	private String memberContactNumber;
-	
+    
 	@CsvBindByName
 	private String memberNumber;
-	
+    
 	@CsvBindByName
 	private String memberTFN;
-	
+    
 	@CsvBindByName
 	private String memberPayrollNumber;
-	
+    
 	@CsvBindByName
-	private String memberEmployeeStatus;
-	
+	private String memberEmploymentStatus;
+    
 	@CsvBindByName
 	private String memberFundRegistrationDate;
-	
 	
 	protected Member() {
 	}
 
-	public Member(String transactionIdentifier, String employeeName, String employeeABN, String fundIdentifier,
-			String fundEmployeeIdentifier, String memberFirstname, String memberLastname, String memberDOB,
+	public Member(Long id, String transactionIdentifier, String employerName, String employerABN, String fundIdentifier,
+			String fundEmployerIdentifier, String memberFirstName, String memberLastName, String memberDateOfBirth,
 			String memberGender, String memberAddress, String memberEmail, String memberContactNumber,
-			String memberNumber, String memberTFN, String memberPayrollNumber, String memberEmployeeStatus,
+			String memberNumber, String memberTFN, String memberPayrollNumber, String memberEmploymentStatus,
 			String memberFundRegistrationDate) {
 		super();
+		this.id = id;
 		this.transactionIdentifier = transactionIdentifier;
-		this.employeeName = employeeName;
-		this.employeeABN = employeeABN;
+		this.employerName = employerName;
+		this.employerABN = employerABN;
 		this.fundIdentifier = fundIdentifier;
-		this.fundEmployeeIdentifier = fundEmployeeIdentifier;
-		this.memberFirstname = memberFirstname;
-		this.memberLastname = memberLastname;
-		this.memberDOB = memberDOB;
+		this.fundEmployerIdentifier = fundEmployerIdentifier;
+		this.memberFirstName = memberFirstName;
+		this.memberLastName = memberLastName;
+		this.memberDateOfBirth = memberDateOfBirth;
 		this.memberGender = memberGender;
 		this.memberAddress = memberAddress;
 		this.memberEmail = memberEmail;
@@ -93,95 +93,77 @@ public class Member {
 		this.memberNumber = memberNumber;
 		this.memberTFN = memberTFN;
 		this.memberPayrollNumber = memberPayrollNumber;
-		this.memberEmployeeStatus = memberEmployeeStatus;
+		this.memberEmploymentStatus = memberEmploymentStatus;
 		this.memberFundRegistrationDate = memberFundRegistrationDate;
 	}
-
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public String getTransactionIdentifier() {
 		return transactionIdentifier;
 	}
 
-
-	public String getEmployeeName() {
-		return employeeName;
+	public String getEmployerName() {
+		return employerName;
 	}
 
-
-	public String getEmployeeABN() {
-		return employeeABN;
+	public String getEmployerABN() {
+		return employerABN;
 	}
-
 
 	public String getFundIdentifier() {
 		return fundIdentifier;
 	}
 
-
-	public String getFundEmployeeIdentifier() {
-		return fundEmployeeIdentifier;
+	public String getFundEmployerIdentifier() {
+		return fundEmployerIdentifier;
 	}
 
-
-	public String getMemberFirstname() {
-		return memberFirstname;
+	public String getMemberFirstName() {
+		return memberFirstName;
 	}
 
-
-	public String getMemberLastname() {
-		return memberLastname;
+	public String getMemberLastName() {
+		return memberLastName;
 	}
 
-
-	public String getMemberDOB() {
-		return memberDOB;
+	public String getMemberDateOfBirth() {
+		return memberDateOfBirth;
 	}
-
 
 	public String getMemberGender() {
 		return memberGender;
 	}
 
-
 	public String getMemberAddress() {
 		return memberAddress;
 	}
-
 
 	public String getMemberEmail() {
 		return memberEmail;
 	}
 
-
 	public String getMemberContactNumber() {
 		return memberContactNumber;
 	}
-
 
 	public String getMemberNumber() {
 		return memberNumber;
 	}
 
-
 	public String getMemberTFN() {
 		return memberTFN;
 	}
-
 
 	public String getMemberPayrollNumber() {
 		return memberPayrollNumber;
 	}
 
-
-	public String getMemberEmployeeStatus() {
-		return memberEmployeeStatus;
+	public String getMemberEmploymentStatus() {
+		return memberEmploymentStatus;
 	}
-
 
 	public String getMemberFundRegistrationDate() {
 		return memberFundRegistrationDate;

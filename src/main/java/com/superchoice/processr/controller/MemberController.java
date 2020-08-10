@@ -32,8 +32,8 @@ public class MemberController {
 		return memberRepository.findAll();
 	}
 	
-	@CrossOrigin(origins = "*")
-	@DeleteMapping("/member")
+	@CrossOrigin(origins = "http://localhost:80")
+	@GetMapping("/members/cleanup")
 	public CompletableFuture<List<Member>> deleteMembers() {
 		memberRepository.deleteAll();
 		List<Member> remaining = memberRepository.findAll();
