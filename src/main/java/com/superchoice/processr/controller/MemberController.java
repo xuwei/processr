@@ -49,7 +49,7 @@ public class MemberController {
 	}
 	
 	@Async
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "http://localhost:3000, http://processr.wisetreeapps.com")
 	@PostMapping("/members")
 	public CompletableFuture<List<Member>> createMembers(@RequestBody List<Member> members) {
 		if(members.size() > MaxMembersListSize) { throw new InvalidRequestException("List size exceeded maximum of " + MaxMembersListSize); }
