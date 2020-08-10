@@ -7,6 +7,8 @@ import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
+import com.opencsv.bean.CsvBindByName;
+
 @Component
 @Entity
 public class Member {
@@ -15,22 +17,55 @@ public class Member {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id; 
 	
+	@CsvBindByName
 	private String transactionIdentifier;
+	
+	@CsvBindByName
 	private String employeeName;
+	
+	@CsvBindByName
 	private String employeeABN;
+	
+	@CsvBindByName
 	private String fundIdentifier;
+	
+	@CsvBindByName
 	private String fundEmployeeIdentifier;
+	
+	@CsvBindByName
 	private String memberFirstname;
+	
+	@CsvBindByName
 	private String memberLastname;
+	
+	@CsvBindByName
 	private String memberDOB;
+	
+	@CsvBindByName
 	private String memberGender;
+	
+	@CsvBindByName
 	private String memberAddress;
+	
+	@CsvBindByName
 	private String memberEmail;
+	
+	@CsvBindByName
 	private String memberContactNumber;
+	
+	@CsvBindByName
 	private String memberNumber;
+	
+	@CsvBindByName
 	private String memberTFN;
+	
+	@CsvBindByName
 	private String memberPayrollNumber;
+	
+	@CsvBindByName
 	private String memberEmployeeStatus;
+	
+	@CsvBindByName
 	private String memberFundRegistrationDate;
 	
 	
