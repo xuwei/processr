@@ -96,7 +96,7 @@ public class Member {
 	@Email
 	private String postedBy;
 	
-	protected Member() {
+	public Member() {
 	}
 
 	public Member(Long id, @NotNull @NotEmpty String transactionIdentifier, @NotNull @NotEmpty String employerNames,
@@ -209,5 +209,9 @@ public class Member {
 
 	public String getPostedBy() {
 		return postedBy;
+	}
+
+	public void setMemberFirstName(String memberFirstName) {
+		this.memberFirstName = memberFirstName;
 	}
 }
