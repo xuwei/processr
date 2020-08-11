@@ -4,11 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
-import com.opencsv.bean.CsvBindByName;
-
+/**
+ * @author xuweiliang
+ *
+ */
 @Component
 @Entity
 public class Member {
@@ -17,75 +22,103 @@ public class Member {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id; 
 	
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String transactionIdentifier;
-	
-	@CsvBindByName
-	private String employeeName;
-	
-	@CsvBindByName
-	private String employeeABN;
-	
-	@CsvBindByName
+    
+	@NotNull
+	@NotEmpty 
+	private String employerNames;
+    
+	@NotNull
+	@NotEmpty 
+	private String employerABN;
+    
+	@NotNull
+	@NotEmpty 
 	private String fundIdentifier;
-	
-	@CsvBindByName
-	private String fundEmployeeIdentifier;
-	
-	@CsvBindByName
-	private String memberFirstname;
-	
-	@CsvBindByName
-	private String memberLastname;
-	
-	@CsvBindByName
-	private String memberDOB;
-	
-	@CsvBindByName
+    
+	@NotNull
+	@NotEmpty 
+	private String fundEmployerIdentifier;
+    
+	@NotNull
+	@NotEmpty 
+	private String memberFirstName;
+    
+	@NotNull
+	@NotEmpty 
+	private String memberLastName;
+	 
+	private String memberOtherNames;
+    
+	@NotNull
+	@NotEmpty 
+	private String memberDateOfBirth;
+    
+	@NotNull
+	@NotEmpty 
 	private String memberGender;
-	
-	@CsvBindByName
+    
+	@NotNull
+	@NotEmpty 
 	private String memberAddress;
-	
-	@CsvBindByName
+    
+	@NotNull
+	@NotEmpty 
+	@Email
 	private String memberEmail;
-	
-	@CsvBindByName
+    
 	private String memberContactNumber;
-	
-	@CsvBindByName
+    
+	@NotNull
+	@NotEmpty 
 	private String memberNumber;
-	
-	@CsvBindByName
+    
+	@NotNull
+	@NotEmpty 
 	private String memberTFN;
-	
-	@CsvBindByName
+    
+	@NotNull
+	@NotEmpty 
 	private String memberPayrollNumber;
-	
-	@CsvBindByName
-	private String memberEmployeeStatus;
-	
-	@CsvBindByName
+    
+	@NotNull
+	@NotEmpty 
+	private String memberEmploymentStatus;
+    
+	@NotNull
+	@NotEmpty 
 	private String memberFundRegistrationDate;
 	
+	@NotNull
+	@NotEmpty 
+	@Email
+	private String postedBy;
 	
-	protected Member() {
+	public Member() {
 	}
 
-	public Member(String transactionIdentifier, String employeeName, String employeeABN, String fundIdentifier,
-			String fundEmployeeIdentifier, String memberFirstname, String memberLastname, String memberDOB,
-			String memberGender, String memberAddress, String memberEmail, String memberContactNumber,
-			String memberNumber, String memberTFN, String memberPayrollNumber, String memberEmployeeStatus,
-			String memberFundRegistrationDate) {
+	public Member(Long id, @NotNull @NotEmpty String transactionIdentifier, @NotNull @NotEmpty String employerNames,
+			@NotNull @NotEmpty String employerABN, @NotNull @NotEmpty String fundIdentifier,
+			@NotNull @NotEmpty String fundEmployerIdentifier, @NotNull @NotEmpty String memberFirstName,
+			@NotNull @NotEmpty String memberLastName, String memberOtherNames,
+			@NotNull @NotEmpty String memberDateOfBirth, @NotNull @NotEmpty String memberGender,
+			@NotNull @NotEmpty String memberAddress, @NotNull @NotEmpty @Email String memberEmail,
+			String memberContactNumber, @NotNull @NotEmpty String memberNumber, @NotNull @NotEmpty String memberTFN,
+			@NotNull @NotEmpty String memberPayrollNumber, @NotNull @NotEmpty String memberEmploymentStatus,
+			@NotNull @NotEmpty String memberFundRegistrationDate, @NotNull @NotEmpty @Email String postedBy) {
 		super();
+		this.id = id;
 		this.transactionIdentifier = transactionIdentifier;
-		this.employeeName = employeeName;
-		this.employeeABN = employeeABN;
+		this.employerNames = employerNames;
+		this.employerABN = employerABN;
 		this.fundIdentifier = fundIdentifier;
-		this.fundEmployeeIdentifier = fundEmployeeIdentifier;
-		this.memberFirstname = memberFirstname;
-		this.memberLastname = memberLastname;
-		this.memberDOB = memberDOB;
+		this.fundEmployerIdentifier = fundEmployerIdentifier;
+		this.memberFirstName = memberFirstName;
+		this.memberLastName = memberLastName;
+		this.memberOtherNames = memberOtherNames;
+		this.memberDateOfBirth = memberDateOfBirth;
 		this.memberGender = memberGender;
 		this.memberAddress = memberAddress;
 		this.memberEmail = memberEmail;
@@ -93,97 +126,92 @@ public class Member {
 		this.memberNumber = memberNumber;
 		this.memberTFN = memberTFN;
 		this.memberPayrollNumber = memberPayrollNumber;
-		this.memberEmployeeStatus = memberEmployeeStatus;
+		this.memberEmploymentStatus = memberEmploymentStatus;
 		this.memberFundRegistrationDate = memberFundRegistrationDate;
+		this.postedBy = postedBy;
 	}
-
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public String getTransactionIdentifier() {
 		return transactionIdentifier;
 	}
 
-
-	public String getEmployeeName() {
-		return employeeName;
+	public String getEmployerNames() {
+		return employerNames;
 	}
 
-
-	public String getEmployeeABN() {
-		return employeeABN;
+	public String getEmployerABN() {
+		return employerABN;
 	}
-
 
 	public String getFundIdentifier() {
 		return fundIdentifier;
 	}
 
-
-	public String getFundEmployeeIdentifier() {
-		return fundEmployeeIdentifier;
+	public String getFundEmployerIdentifier() {
+		return fundEmployerIdentifier;
 	}
 
-
-	public String getMemberFirstname() {
-		return memberFirstname;
+	public String getMemberFirstName() {
+		return memberFirstName;
 	}
 
-
-	public String getMemberLastname() {
-		return memberLastname;
+	public String getMemberLastName() {
+		return memberLastName;
 	}
 
-
-	public String getMemberDOB() {
-		return memberDOB;
+	public String getMemberOtherNames() {
+		return memberOtherNames;
 	}
 
+	public String getMemberDateOfBirth() {
+		return memberDateOfBirth;
+	}
 
 	public String getMemberGender() {
 		return memberGender;
 	}
 
-
 	public String getMemberAddress() {
 		return memberAddress;
 	}
-
 
 	public String getMemberEmail() {
 		return memberEmail;
 	}
 
-
 	public String getMemberContactNumber() {
 		return memberContactNumber;
 	}
-
 
 	public String getMemberNumber() {
 		return memberNumber;
 	}
 
-
 	public String getMemberTFN() {
 		return memberTFN;
 	}
-
 
 	public String getMemberPayrollNumber() {
 		return memberPayrollNumber;
 	}
 
-
-	public String getMemberEmployeeStatus() {
-		return memberEmployeeStatus;
+	public String getMemberEmploymentStatus() {
+		return memberEmploymentStatus;
 	}
-
 
 	public String getMemberFundRegistrationDate() {
 		return memberFundRegistrationDate;
+	}
+
+	public String getPostedBy() {
+		return postedBy;
+	}
+
+	public void setMemberFirstName(String memberFirstName) {
+		this.memberFirstName = memberFirstName;
 	}
 }
