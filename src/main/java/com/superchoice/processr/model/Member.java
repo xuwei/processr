@@ -4,11 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
-import com.opencsv.bean.CsvBindByName;
-
+/**
+ * @author xuweiliang
+ *
+ */
 @Component
 @Entity
 public class Member {
@@ -17,74 +22,102 @@ public class Member {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id; 
 	
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String transactionIdentifier;
     
-	@CsvBindByName
-	private String employerName;
+	@NotNull
+	@NotEmpty 
+	private String employerNames;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String employerABN;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String fundIdentifier;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String fundEmployerIdentifier;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberFirstName;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberLastName;
+	 
+	private String memberOtherNames;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberDateOfBirth;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberGender;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberAddress;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
+	@Email
 	private String memberEmail;
     
-	@CsvBindByName
 	private String memberContactNumber;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberNumber;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberTFN;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberPayrollNumber;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberEmploymentStatus;
     
-	@CsvBindByName
+	@NotNull
+	@NotEmpty 
 	private String memberFundRegistrationDate;
+	
+	@NotNull
+	@NotEmpty 
+	@Email
+	private String postedBy;
 	
 	protected Member() {
 	}
 
-	public Member(Long id, String transactionIdentifier, String employerName, String employerABN, String fundIdentifier,
-			String fundEmployerIdentifier, String memberFirstName, String memberLastName, String memberDateOfBirth,
-			String memberGender, String memberAddress, String memberEmail, String memberContactNumber,
-			String memberNumber, String memberTFN, String memberPayrollNumber, String memberEmploymentStatus,
-			String memberFundRegistrationDate) {
+	public Member(Long id, @NotNull @NotEmpty String transactionIdentifier, @NotNull @NotEmpty String employerNames,
+			@NotNull @NotEmpty String employerABN, @NotNull @NotEmpty String fundIdentifier,
+			@NotNull @NotEmpty String fundEmployerIdentifier, @NotNull @NotEmpty String memberFirstName,
+			@NotNull @NotEmpty String memberLastName, String memberOtherNames,
+			@NotNull @NotEmpty String memberDateOfBirth, @NotNull @NotEmpty String memberGender,
+			@NotNull @NotEmpty String memberAddress, @NotNull @NotEmpty @Email String memberEmail,
+			String memberContactNumber, @NotNull @NotEmpty String memberNumber, @NotNull @NotEmpty String memberTFN,
+			@NotNull @NotEmpty String memberPayrollNumber, @NotNull @NotEmpty String memberEmploymentStatus,
+			@NotNull @NotEmpty String memberFundRegistrationDate, @NotNull @NotEmpty @Email String postedBy) {
 		super();
 		this.id = id;
 		this.transactionIdentifier = transactionIdentifier;
-		this.employerName = employerName;
+		this.employerNames = employerNames;
 		this.employerABN = employerABN;
 		this.fundIdentifier = fundIdentifier;
 		this.fundEmployerIdentifier = fundEmployerIdentifier;
 		this.memberFirstName = memberFirstName;
 		this.memberLastName = memberLastName;
+		this.memberOtherNames = memberOtherNames;
 		this.memberDateOfBirth = memberDateOfBirth;
 		this.memberGender = memberGender;
 		this.memberAddress = memberAddress;
@@ -95,6 +128,7 @@ public class Member {
 		this.memberPayrollNumber = memberPayrollNumber;
 		this.memberEmploymentStatus = memberEmploymentStatus;
 		this.memberFundRegistrationDate = memberFundRegistrationDate;
+		this.postedBy = postedBy;
 	}
 
 	public Long getId() {
@@ -105,8 +139,8 @@ public class Member {
 		return transactionIdentifier;
 	}
 
-	public String getEmployerName() {
-		return employerName;
+	public String getEmployerNames() {
+		return employerNames;
 	}
 
 	public String getEmployerABN() {
@@ -127,6 +161,10 @@ public class Member {
 
 	public String getMemberLastName() {
 		return memberLastName;
+	}
+
+	public String getMemberOtherNames() {
+		return memberOtherNames;
 	}
 
 	public String getMemberDateOfBirth() {
@@ -167,5 +205,9 @@ public class Member {
 
 	public String getMemberFundRegistrationDate() {
 		return memberFundRegistrationDate;
+	}
+
+	public String getPostedBy() {
+		return postedBy;
 	}
 }
